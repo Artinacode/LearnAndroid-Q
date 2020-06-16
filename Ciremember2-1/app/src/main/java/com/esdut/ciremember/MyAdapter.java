@@ -1,4 +1,4 @@
-package com.esdut.roombasic1;
+package com.esdut.ciremember;
 
 import android.content.Intent;
 import android.view.LayoutInflater;

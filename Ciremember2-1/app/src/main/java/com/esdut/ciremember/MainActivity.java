@@ -1,4 +1,4 @@
-package com.esdut.roombasic1;
+package com.esdut.ciremember;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;

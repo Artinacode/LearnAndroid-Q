@@ -1,6 +1,4 @@
-package com.esdut.roombasic1;
-
-import android.util.SparseBooleanArray;
+package com.esdut.ciremember;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
