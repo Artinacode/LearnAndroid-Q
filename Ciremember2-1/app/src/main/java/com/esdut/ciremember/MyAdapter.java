@@ -31,33 +31,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View itemVIew;
+        View itemView;
         if (useCardView) {
-              itemVIew = layoutInflater.inflate(R.layout.cell_card_2,parent,false);
+              itemView = layoutInflater.inflate(R.layout.cell_card_2,parent,false);
         } else {
-            itemVIew = layoutInflater.inflate(R.layout.cell_normal_2,parent,false);
+            itemView = layoutInflater.inflate(R.layout.cell_normal_2,parent,false);
         }
-
-        return new MyViewHolder(itemVIew);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
-        final Word word = allWords.get(position);
-        holder.textViewNumber.setText(String.valueOf(position + 1));
-        holder.textViewEnglish.setText(word.getWord());
-        holder.textViewChinese.setText(word.getChineseMeaning());
-        /**
-         * 先设置监听器为空
-         */
-        holder.aSwitchChineseInvisiable.setOnCheckedChangeListener(null);
-        if(word.isChineseInvisiable()) {
-            holder.textViewChinese.setVisibility(View.GONE);
-            holder.aSwitchChineseInvisiable.setChecked(true);
-        } else {
-            holder.textViewChinese.setVisibility(View.VISIBLE);
-            holder.aSwitchChineseInvisiable.setChecked(false);
-        }
+        final MyViewHolder holder = new MyViewHolder(itemView);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,17 +47,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 intent.setAction("ask");
                 intent.addCategory("android.intent.category.DEFAULT");
                 holder.itemView.getContext().startActivity(intent);
-
-//                Uri uri = Uri.parse("https://m.youdao.com/dict?le=eng&q=" + holder.textViewEnglish.getText());
-//                Intent intent = new Intent(Intent.ACTION_VIEW);
-//                intent.setData(uri);
-//                holder.itemView.getContext().startActivity(intent);
             }
         });
 
         holder.aSwitchChineseInvisiable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Word word = (Word) holder.itemView.getTag(R.id.word_for_view_holder);
                 if (isChecked) {
                     //如果点击了  修改视图 修改底层数据  两件事
                     holder.textViewChinese.setVisibility(View.GONE);
@@ -90,6 +66,52 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 }
             }
         });
+        return holder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
+        final Word word = allWords.get(position);
+        holder.itemView.setTag(R.id.word_for_view_holder,word);
+        holder.textViewNumber.setText(String.valueOf(position + 1));
+        holder.textViewEnglish.setText(word.getWord());
+        holder.textViewChinese.setText(word.getChineseMeaning());
+//        // 先设置监听器为空
+//        holder.aSwitchChineseInvisiable.setOnCheckedChangeListener(null);
+        if(word.isChineseInvisiable()) {
+            holder.textViewChinese.setVisibility(View.GONE);
+            holder.aSwitchChineseInvisiable.setChecked(true);
+        } else {
+            holder.textViewChinese.setVisibility(View.VISIBLE);
+            holder.aSwitchChineseInvisiable.setChecked(false);
+        }
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+////                Uri uri = Uri.parse("https://m.youdao.com/dict?le=eng&q=" + holder.textViewEnglish.getText());
+////                Intent intent = new Intent(Intent.ACTION_VIEW);
+////                intent.setData(uri);
+////                holder.itemView.getContext().startActivity(intent);
+//            }
+//        });
+
+//        holder.aSwitchChineseInvisiable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked) {
+//                    //如果点击了  修改视图 修改底层数据  两件事
+//                    holder.textViewChinese.setVisibility(View.GONE);
+//                    word.setChineseInvisiable(true);
+//                    wordViewModel.updateWords(word);
+//                } else {
+//                    holder.textViewChinese.setVisibility(View.VISIBLE);
+//                    word.setChineseInvisiable(false);
+//                    wordViewModel.updateWords(word);
+//                }
+//            }
+//        });
 
     }
 
