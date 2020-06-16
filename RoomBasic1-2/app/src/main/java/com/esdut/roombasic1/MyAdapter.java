@@ -1,5 +1,8 @@
 package com.esdut.roombasic1;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,14 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    List<Word> allWords =  new ArrayList<>();
-    boolean useCardView;
+    private List<Word> allWords =  new ArrayList<>();
+    private final boolean useCardView;
 
-    public MyAdapter(boolean useCardView) {
+    MyAdapter(boolean useCardView) {
         this.useCardView = useCardView;
     }
 
-    public void setAllWords(List<Word> allWords) {
+    void setAllWords(List<Word> allWords) {
         this.allWords = allWords;
     }
 
@@ -32,18 +35,33 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
               itemVIew = layoutInflater.inflate(R.layout.cell_card,parent,false);
         } else {
             itemVIew = layoutInflater.inflate(R.layout.cell_normal,parent,false);
-
         }
 
         return new MyViewHolder(itemVIew);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
         Word word = allWords.get(position);
         holder.textViewNumber.setText(String.valueOf(position + 1));
         holder.textViewEnglish.setText(word.getWord());
         holder.textViewChinese.setText(word.getChineseMeaning());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String u = holder.textViewEnglish.getText().toString();
+                Intent intent = new Intent();
+                intent.putExtra("word",u);
+                intent.setAction("ask");
+                intent.addCategory("android.intent.category.DEFAULT");
+                holder.itemView.getContext().startActivity(intent);
+
+//                Uri uri = Uri.parse("https://m.youdao.com/dict?le=eng&q=" + holder.textViewEnglish.getText());
+//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setData(uri);
+//                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
