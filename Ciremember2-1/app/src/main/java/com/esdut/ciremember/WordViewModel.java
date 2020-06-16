@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class WordViewModel extends AndroidViewModel {
-    private WordDao wordDao;
+//    private WordDao wordDao;
     private WordRepository wordRepository;
 //    private LiveData<List<Word>>allWordsLive;
     public WordViewModel(@NonNull Application application) {

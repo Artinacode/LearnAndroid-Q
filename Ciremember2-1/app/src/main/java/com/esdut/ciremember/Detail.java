@@ -35,12 +35,8 @@ public class Detail extends AppCompatActivity {
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
         String u = getIntent().getStringExtra("word");
-//        String uri = "\"http://dict.kekenet.com/en/ " + u + "\"";
-//        myWebView.loadUrl("http://dict.kekenet.com/en/"+u);
-//        myWebView.loadUrl("https://dict.hjenglish.com/w/" + u);
-        myWebView.loadUrl("http://dict.youdao.com/w/" + u);
-//        myWebView.requestFocus(View.FOCUS_DOWN);
-//        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//        imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+//        myWebView.loadUrl("http://dict.youdao.com/w/" + u);
+        myWebView.loadUrl("https://m.youdao.com/dict?le=eng&q=" + u);
+        
     }
 }

@@ -16,14 +16,11 @@ import android.widget.TextView;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-//    WordDataBase wordDataBase;
     TextView textView;
-//    WordDao wordDao;
-    Button btn_insert,btn_clear,btn_update,btn_delete;
-//    LiveData<List<Word>>allWordsLive;
+    Button btn_insert, btn_clear;
     WordViewModel wordViewModel;
     RecyclerView recyclerView;
-    MyAdapter myAdapter1,myAdapter2;
+    MyAdapter myAdapter1, myAdapter2;
     Switch aSwitch;
 
     @Override
@@ -32,15 +29,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         wordViewModel = new ViewModelProvider(this).get(WordViewModel.class);
         recyclerView = findViewById(R.id.recycleView);
-        myAdapter1 = new MyAdapter(false,wordViewModel);
-        myAdapter2 = new MyAdapter(true,wordViewModel);
+        myAdapter1 = new MyAdapter(false, wordViewModel);
+        myAdapter2 = new MyAdapter(true, wordViewModel);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(myAdapter1);
         aSwitch = findViewById(R.id.switch1);
         aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked) {
+                if (isChecked) {
                     recyclerView.setAdapter(myAdapter2);
                 } else {
                     recyclerView.setAdapter(myAdapter1);
@@ -96,50 +93,19 @@ public class MainActivity extends AppCompatActivity {
                         "价值",
                         "整数类型"
                 };
-                for(int i = 0;i<english.length;i++) {
-                    wordViewModel.insertWords(new Word(english[i],chinese[i]));
+                for (int i = 0; i < english.length; i++) {
+                    wordViewModel.insertWords(new Word(english[i], chinese[i]));
                 }
-//                Word word1 = new Word("hello", "您好");
-//                Word word2 = new Word("word", "世界");
-////                wordDao.insertWords(word1,word2);
-////                new InsertAsynTask(wordDao).execute(word1,word2);
-//                wordViewModel.insertWords(word1,word2);
             }
         });
         btn_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                new DeleteAllAsynTask(wordDao).execute();
                 wordViewModel.clearWords();
             }
         });
 
-//        btn_update.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Word word = new Word("Hi","你好啊");
-//                word.setId(40);
-////                wordDao.updataWords(word);
-////                new UpdateAsynTask(wordDao).execute(word);
-//                wordViewModel.updateWords(word);
-//            }
-//        });
-//        btn_delete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Word word = new Word("Hi","你好啊");
-//                word.setId(40);
-////                wordDao.deleteWords(word);
-////                new WordViewModel.DeleteAsynTask(wordDao).execute(word);
-//                wordViewModel.deleteWords(word);
-//            }
-//        });
     }
 
-//    void updateView() {
-//    已经被Livedata替换
-//    }
-
-    //
 
 }
