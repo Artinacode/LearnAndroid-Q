@@ -33,9 +33,8 @@ public class WordRepository {
     void clearWords(Word... words) {
         new DeleteAllAsynTask(wordDao).execute();
     }
-
     /**
-     *
+     * 我在测试
      * 引入了AsyncTask 后台执行
      */
     static class DeleteAllAsynTask extends AsyncTask<Void,Void,Void> {
