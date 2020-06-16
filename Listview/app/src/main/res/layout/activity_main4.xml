@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="45dp"
+         android:text="购物车"
+         android:textSize="20sp"
+         android:textColor="#FFFFFF"
+         android:background="#009688"
+         android:gravity="center"
+         />
+
+
+     <ListView
+         android:layout_weight="1"
+         android:id="@+id/lv"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+
+         />
+     <TextView
+         android:id="@+id/shop_bar"
+         android:layout_width="match_parent"
+         android:layout_height="45dp"
+         android:text="总价：120元"
+         android:textSize="30sp"
+         android:textColor="#FFFFFF"
+         android:background="#673AB7"
+         android:gravity="center"
+         />
+</LinearLayout>

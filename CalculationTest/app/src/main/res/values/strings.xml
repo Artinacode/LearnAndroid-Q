@@ -1,0 +1,46 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">CalculationTest</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="title_message">Caculation Test</string>
+    <string name="title_image_info" translatable="false">title image</string>
+    <string name="title_button_message">Enter</string>
+    <string name="high_score_message">High Score:%d</string>
+    <string name="equal_symbol" translatable="false">=</string>
+    <!--suppress AndroidDomInspection -->
+    <string name="question_mark" translatable="false">?</string>
+    <string name="current_score">Score:%d</string>
+    <string name="input_indicator">Your Answer:</string>
+    <string name="lose_image_message" translatable="false">lose message</string>
+    <string name="win_image_message" translatable="false">win message</string>
+    <string name="win_message">You Win!</string>
+    <string name="lose_message" >What\'s the Pity!</string>
+    <string name="lose_score_message">Your Score:%d</string>
+    <string name="win_score_message">New Record:%d</string>
+    <string name="button_back_to_title">Back</string>
+    <string name="answer_correct_message">Correct! Go on!</string>
+    <string name="quit_dialog_title">Do you want to quit？</string>
+    <string name="dialog_positive_message">OK</string>
+    <string name="dialog_negative_message">Cancel</string>
+    <string name="title_nav_message">Welcome</string>
+    <string name="win_nav_message">Win</string>
+    <string name="lose_nav_message">Lose</string>
+    <string name="question_nav_message">Test</string>
+
+
+
+    <!--keyboard-->
+    <string name="button0" translatable="false">0</string>
+    <string name="button1" translatable="false">1</string>
+    <string name="button2" translatable="false">2</string>
+    <string name="button3" translatable="false">3</string>
+    <string name="button4" translatable="false">4</string>
+    <string name="button5" translatable="false">5</string>
+    <string name="button6" translatable="false">6</string>
+    <string name="button7" translatable="false">7</string>
+    <string name="button8" translatable="false">8</string>
+    <string name="button9" translatable="false">9</string>
+    <string name="buttonClear" translatable="false">C</string>
+    <string name="buttonSubmit">OK</string>
+
+</resources>

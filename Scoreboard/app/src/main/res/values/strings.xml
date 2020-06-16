@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Scoreboard</string>
+    <string name="a">A 队</string>
+    <string name="b">B 队</string>
+    <string name="_15">15</string>
+    <string name="b_1">B+1</string>
+    <string name="a_1">A+1</string>
+</resources>

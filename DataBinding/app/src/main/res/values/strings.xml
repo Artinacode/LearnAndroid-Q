@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DataBinding</string>
+    <string name="button">Button</string>
+</resources>

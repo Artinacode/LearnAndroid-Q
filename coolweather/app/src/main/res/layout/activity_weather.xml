@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/bing_pic_img"
+            android:scaleType="centerCrop"
+            android:contentDescription="TODO" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:id="@+id/weather_layout">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:fitsSystemWindows="true">
+            <include layout="@layout/title"/>
+            <include layout="@layout/now"/>
+            <include layout="@layout/forecast"/>
+            <include layout="@layout/aqi"/>
+            <include layout="@layout/suggestion"/>
+        </LinearLayout>
+
+    </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <fragment
+            android:id="@+id/choose_area_fragment"
+            android:name="com.moyu.coolweather.ChooseAreaFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            tools:layout="@layout/choose_area" />
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</FrameLayout>

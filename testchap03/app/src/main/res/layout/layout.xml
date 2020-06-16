@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+<TextView
+    android:id="@+id/txtName"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="用户名："
+    android:textSize="30sp"
+    android:textColor="@color/blue"
+    android:textStyle="bold"></TextView>
+
+    <EditText
+        android:id="@+id/edName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入用户名"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="20sp"
+        android:textColor="@color/blue"></EditText>
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:text="提交"
+        android:textSize="30sp"
+        ></Button>
+</LinearLayout>

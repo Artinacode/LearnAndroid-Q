@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:text="会员信息"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:textSize="30dp"
+        android:layout_margin="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/shape02"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@null"
+            android:layout_margin="20dp"
+            android:text="用户名：Qiguowei"
+            android:textSize="20sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#e0e0e0"
+            android:layout_margin="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@null"
+            android:layout_margin="20dp"
+            android:text="姓  名  ：齐国伟"
+            android:textSize="20sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#e0e0e0"
+            android:layout_margin="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@null"
+            android:layout_margin="20dp"
+            android:text="邮箱：8078****@qq.com"
+            android:textSize="20sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#e0e0e0"
+            android:layout_margin="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@null"
+            android:layout_margin="20dp"
+            android:text="收货地址：山东省潍坊市昌邑市"
+            android:textSize="20sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#e0e0e0"
+            android:layout_margin="15dp"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:text="退出登录"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
