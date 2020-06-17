@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp"
+    android:background="#B39DDB"
+    android:backgroundTint="#A5D6A7"
+    android:backgroundTintMode="add"
     android:clickable="true">
 
     <androidx.cardview.widget.CardView
@@ -13,9 +16,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
-        android:background="#2C628C"
         android:backgroundTint="#C5E1A5"
         android:foreground="?android:selectableItemBackground"
+        app:cardBackgroundColor="#84FFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +40,8 @@
                 android:id="@+id/constraintLayout3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:backgroundTint="#8F6262"
+                android:background="#FFCDD2"
+                android:backgroundTint="#AED581"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/constraintLayout4"

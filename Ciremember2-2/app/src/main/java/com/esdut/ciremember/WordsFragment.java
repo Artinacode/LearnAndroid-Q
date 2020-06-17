@@ -291,8 +291,8 @@ public class WordsFragment extends Fragment {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                                                                                                                                        NavController navController = Navigation.findNavController(v);
-                                                                                                                                        navController.navigate(R.id.addFragment);
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.addFragment);
             }
         });
     }
