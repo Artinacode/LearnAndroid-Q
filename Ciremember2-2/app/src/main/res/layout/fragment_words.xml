@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,17 +12,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:layout_margin="16dp"
-        android:backgroundTint="#00ACC1"
+        android:backgroundTint="#D81B60"
         android:clickable="true"
         android:contentDescription="@string/wo"
         android:focusable="true"
         android:src="@drawable/ic_baseline_add_24_white" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleView"
+        android:id="@+id/WordsFragmentView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:backgroundTint="#672222">
 
     </androidx.recyclerview.widget.RecyclerView>
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -16,9 +16,6 @@
         android:id="@+id/switchViewType"
         android:title="切换视图" />
     <item
-        android:id="@+id/media_route_menu_item"
-        android:title="Cast"
-        app:actionProviderClass="androidx.mediarouter.app.MediaRouteActionProvider"
-        tools:icon="@drawable/mr_button_light"></item>
-    <item android:title="Item" />
+        android:id="@+id/exit"
+        android:title="退出" />
 </menu>

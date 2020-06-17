@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="75dp"
+    android:layout_height="100dp"
     android:clickable="true">
 
     <androidx.cardview.widget.CardView
@@ -13,6 +13,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
+        android:background="#5787AC"
+        android:backgroundTint="#C5E1A5"
         android:foreground="?android:selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +37,7 @@
                 android:id="@+id/constraintLayout3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:background="?android:selectableItemBackground"
+                android:backgroundTint="#8F6262"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/constraintLayout4"
@@ -68,19 +70,18 @@
                     android:text="TextView"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/textViewEnglish"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline16"
                     app:layout_constraintTop_toBottomOf="@+id/textViewEnglish" />
 
                 <TextView
                     android:id="@+id/textViewEnglish"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:text="TextView"
-                    android:textSize="24sp"
+                    android:textSize="36sp"
                     app:layout_constraintBottom_toTopOf="@+id/textViewChinese"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/guideline16"
                     app:layout_constraintTop_toTopOf="parent" />
 

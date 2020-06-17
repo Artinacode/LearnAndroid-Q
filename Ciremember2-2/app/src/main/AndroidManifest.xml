@@ -7,12 +7,14 @@
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@mipmap/ciji"
+        android:label="词 记"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RoomBasic1">
-        <activity android:name="com.esdut.ciremember.Detail">
+        <activity
+            android:name="com.esdut.ciremember.Detail"
+            android:label="查询单词">
             <intent-filter>
                 <action android:name="ask" />
                 <category android:name="android.intent.category.DEFAULT" />

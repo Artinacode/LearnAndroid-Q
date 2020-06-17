@@ -2,10 +2,13 @@ package com.esdut.ciremember;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.os.Bundle;
+import android.view.Window;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toolbar;
 
 public class Detail extends AppCompatActivity {
 
@@ -13,6 +16,7 @@ public class Detail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
         WebView myWebView = (WebView) findViewById(R.id.webView);
         myWebView.setWebViewClient(new WebViewClient());
 
@@ -27,4 +31,5 @@ public class Detail extends AppCompatActivity {
         myWebView.loadUrl("https://m.youdao.com/dict?le=eng&q=" + u);
 
     }
+
 }

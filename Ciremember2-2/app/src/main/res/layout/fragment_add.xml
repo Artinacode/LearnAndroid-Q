@@ -57,7 +57,7 @@
         android:id="@+id/buttonSummit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="确定"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/edit1"
         app:layout_constraintStart_toStartOf="@+id/edit1"
