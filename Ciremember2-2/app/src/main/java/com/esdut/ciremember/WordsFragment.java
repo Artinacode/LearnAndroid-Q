@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,11 +36,12 @@ import java.util.List;
 public class WordsFragment extends Fragment {
     private WordViewModel wordViewModel;
     private RecyclerView recyclerView;
-    private MyAdapter myAdapter1,myAdapter2;
+    private MyAdapter myAdapter1, myAdapter2;
     private FloatingActionButton floatingActionButton;
     private LiveData<List<Word>> filteredWords;
     private static final String VIEW_TYPE_SHP = "view_type_shp";
     private static final String IS_USING_CARD_VIEW = "is_using_card_view";
+
     public WordsFragment() {
         // Required empty public constructor
         setHasOptionsMenu(true);
@@ -66,16 +68,16 @@ public class WordsFragment extends Fragment {
                 builder.create();
                 builder.show();
                 break;
-            case  R.id.switchViewType:
-                SharedPreferences shp = requireActivity().getSharedPreferences(VIEW_TYPE_SHP,Context.MODE_PRIVATE);
-                boolean viewType = shp.getBoolean(IS_USING_CARD_VIEW,false);
+            case R.id.switchViewType:
+                SharedPreferences shp = requireActivity().getSharedPreferences(VIEW_TYPE_SHP, Context.MODE_PRIVATE);
+                boolean viewType = shp.getBoolean(IS_USING_CARD_VIEW, false);
                 SharedPreferences.Editor editor = shp.edit();
-                if(viewType) {
+                if (viewType) {
                     recyclerView.setAdapter(myAdapter1);
-                    editor.putBoolean(IS_USING_CARD_VIEW,false);
+                    editor.putBoolean(IS_USING_CARD_VIEW, false);
                 } else {
                     recyclerView.setAdapter(myAdapter2);
-                    editor.putBoolean(IS_USING_CARD_VIEW,true);
+                    editor.putBoolean(IS_USING_CARD_VIEW, true);
                 }
                 editor.apply();
         }
@@ -85,7 +87,7 @@ public class WordsFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.main_menu,menu);
+        inflater.inflate(R.menu.main_menu, menu);
         SearchView searchView = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
         searchView.setMaxWidth(470);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -104,11 +106,13 @@ public class WordsFragment extends Fragment {
                     @Override
                     public void onChanged(List<Word> words) {
                         int temp = myAdapter1.getItemCount();
-                        myAdapter1.setAllWords(words);
-                        myAdapter2.setAllWords(words);
+//                        myAdapter1.setAllWords(words);
+//                        myAdapter2.setAllWords(words);
                         if (temp != words.size()) {
-                            myAdapter1.notifyDataSetChanged();
-                            myAdapter2.notifyDataSetChanged();
+//                            myAdapter1.notifyDataSetChanged();
+//                            myAdapter2.notifyDataSetChanged();
+                            myAdapter1.submitList(words);
+                            myAdapter2.submitList(words);
                         }
                     }
                 });
@@ -130,13 +134,31 @@ public class WordsFragment extends Fragment {
         wordViewModel = new ViewModelProvider(this).get(WordViewModel.class);
         recyclerView = requireActivity().findViewById(R.id.recycleView);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
-        myAdapter1 = new MyAdapter(false,wordViewModel);
-        myAdapter2 = new MyAdapter(true,wordViewModel);
+        myAdapter1 = new MyAdapter(false, wordViewModel);
+        myAdapter2 = new MyAdapter(true, wordViewModel);
+        recyclerView.setItemAnimator(new DefaultItemAnimator() {
+            @Override
+            public void onAnimationFinished(@NonNull RecyclerView.ViewHolder viewHolder) {
+                super.onAnimationFinished(viewHolder);
+                LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+                if (linearLayoutManager != null) {
+                    int firstPostion = linearLayoutManager.findFirstVisibleItemPosition();
+                    int lastPositon = linearLayoutManager.findLastVisibleItemPosition();
+                    for (int i = firstPostion; i <= lastPositon; i++) {
+                        MyAdapter.MyViewHolder holder = (MyAdapter.MyViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
+                        if (holder != null) {
+                            holder.textViewNumber.setText(String.valueOf(i + 1));
+                        }
+                    }
+                }
+
+            }
+        });
         ///
         /// 读取SHP
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
-        SharedPreferences shp = requireActivity().getSharedPreferences(VIEW_TYPE_SHP,Context.MODE_PRIVATE);
-        boolean viewType = shp.getBoolean(IS_USING_CARD_VIEW,false);
+        SharedPreferences shp = requireActivity().getSharedPreferences(VIEW_TYPE_SHP, Context.MODE_PRIVATE);
+        boolean viewType = shp.getBoolean(IS_USING_CARD_VIEW, false);
         SharedPreferences.Editor editor = shp.edit();
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
         if (viewType) {
@@ -145,21 +167,21 @@ public class WordsFragment extends Fragment {
             recyclerView.setAdapter(myAdapter1);
         }
         filteredWords = wordViewModel.getAllWordsLive();
-//        filteredWords.observe(requireActivity(), new Observer<List<Word>>() {
-//            @Override
-//            public void onChanged(List<Word> words) {
-//
-//            }
-//        });
         filteredWords.observe(requireActivity(), new Observer<List<Word>>() {
             @Override
             public void onChanged(List<Word> words) {
                 int temp = myAdapter1.getItemCount();
-                myAdapter1.setAllWords(words);
-                myAdapter2.setAllWords(words);
+//                myAdapter1.setAllWords(words);
+//                myAdapter2.setAllWords(words);
                 if (temp != words.size()) {
-                    myAdapter1.notifyDataSetChanged();
-                    myAdapter2.notifyDataSetChanged();
+                    recyclerView.smoothScrollBy(0,-400);
+                    myAdapter1.submitList(words);
+                    myAdapter2.submitList(words);
+                    //平滑
+//                    myAdapter1.notifyItemInserted(0);
+
+//                    myAdapter1.notifyDataSetChanged();
+//                    myAdapter2.notifyDataSetChanged();
                 }
             }
         });
@@ -177,7 +199,7 @@ public class WordsFragment extends Fragment {
     @Override
     public void onResume() {
         InputMethodManager imm = (InputMethodManager) requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(getView().getWindowToken(),0);
+        imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
         super.onResume();
     }
 }
