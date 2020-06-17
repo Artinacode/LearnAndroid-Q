@@ -1,17 +1,23 @@
 package com.esdut.ciremember;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -20,7 +26,7 @@ public class WordsFragment extends Fragment {
     private WordViewModel wordViewModel;
     private RecyclerView recyclerView;
     private MyAdapter myAdapter1,myAdapter2;
-
+    private FloatingActionButton floatingActionButton;
 
     public WordsFragment() {
         // Required empty public constructor
@@ -55,5 +61,20 @@ public class WordsFragment extends Fragment {
                 }
             }
         });
+        floatingActionButton = requireActivity().findViewById(R.id.floatingActionButton);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(v);
+                navController.navigate(R.id.addFragment);
+            }
+        });
+    }
+
+    @Override
+    public void onResume() {
+        InputMethodManager imm = (InputMethodManager) requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(getView().getWindowToken(),0);
+        super.onResume();
     }
 }

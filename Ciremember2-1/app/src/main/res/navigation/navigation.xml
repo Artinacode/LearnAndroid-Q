@@ -8,13 +8,13 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="com.esdut.ciremember.AddFragment"
-        android:label="fragment_add"
+        android:label="Add"
         tools:layout="@layout/fragment_add" />
     <fragment
         android:id="@+id/wordsFragment"
         android:name="com.esdut.ciremember.WordsFragment"
-        android:label="fragment_words"
-        tools:layout="@layout/fragment_words" >
+        android:label="Words"
+        tools:layout="@layout/fragment_words">
         <action
             android:id="@+id/action_wordsFragment_to_addFragment"
             app:destination="@id/addFragment"
