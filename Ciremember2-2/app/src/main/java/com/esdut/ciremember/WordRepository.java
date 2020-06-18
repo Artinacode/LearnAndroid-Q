@@ -30,7 +30,7 @@ public class WordRepository {
     void deleteWords(Word... words) {
         new DeleteAsynTask(wordDao).execute(words);
     }
-    void clearWords(Word... words) {
+    void clearWords() {
         new DeleteAllAsynTask(wordDao).execute();
     }
     LiveData<List<Word>> findWordsWithPatten(String patten) {

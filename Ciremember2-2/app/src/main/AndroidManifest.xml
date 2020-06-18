@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoomBasic1">
         <activity
+            android:theme="@style/Theme.Q1"
             android:name="com.esdut.ciremember.Detail"
             android:label="查询单词">
             <intent-filter>

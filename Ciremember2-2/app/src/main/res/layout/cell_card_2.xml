@@ -14,7 +14,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
         android:background="#2C628C"
-        android:backgroundTint="#C5E1A5"
+        android:backgroundTint="#b7eb8f"
         android:foreground="?android:selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

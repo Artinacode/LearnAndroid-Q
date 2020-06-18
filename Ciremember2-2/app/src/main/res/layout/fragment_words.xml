@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:layout_margin="16dp"
-        android:backgroundTint="#D81B60"
+        android:backgroundTint="#F48FB1"
         android:clickable="true"
         android:contentDescription="@string/wo"
         android:focusable="true"

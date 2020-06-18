@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    android:background="#F8BBD0">
+    android:background="#DCEDC8">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -90,7 +90,7 @@
 
         <View
             android:id="@+id/divider"
-            android:layout_width="2dp"
+            android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"

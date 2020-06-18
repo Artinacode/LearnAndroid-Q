@@ -41,7 +41,6 @@ public class DetailFragment extends Fragment {
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
         String u = requireActivity().getIntent().getStringExtra("word");
-//        myWebView.loadUrl("http://dict.youdao.com/w/" + u);
         myWebView.loadUrl("https://m.youdao.com/dict?le=eng&q=" + u);
     }
 }
