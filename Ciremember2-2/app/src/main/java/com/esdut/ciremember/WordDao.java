@@ -17,6 +17,9 @@ public interface WordDao {
     @Update
     void updataWords(Word... words);
 
+    @Query("update WORD set chinese_meaning =:value where english_word=:english")
+    void updateAword(String value, String english);
+
     @Delete
     void deleteWords(Word... words);
 

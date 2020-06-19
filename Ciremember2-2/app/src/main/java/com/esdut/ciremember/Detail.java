@@ -1,17 +1,12 @@
 package com.esdut.ciremember;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ActionBar;
-import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toolbar;
+
 
 public class Detail extends AppCompatActivity {
 
@@ -36,8 +31,9 @@ public class Detail extends AppCompatActivity {
         settings.setLoadWithOverviewMode(true);
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
-        String u = getIntent().getStringExtra("word");
+        final String u = getIntent().getStringExtra("word");
         myWebView.loadUrl("https://m.youdao.com/dict?le=eng&q=" + u);
+
 
 }
 

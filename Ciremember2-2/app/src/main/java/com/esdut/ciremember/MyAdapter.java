@@ -70,7 +70,7 @@ public class MyAdapter extends ListAdapter<Word,MyAdapter.MyViewHolder> {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 Word word = (Word) holder.itemView.getTag(R.id.word_for_view_holder);
                 if (isChecked) {
-                    //如果点击了  修改视图 修改底层数据  两件事
+                    //如果点击了  修改视图 修改底层数据
                     holder.textViewChinese.setVisibility(View.GONE);
                     word.setChineseInvisiable(true);
                     wordViewModel.updateWords(word);

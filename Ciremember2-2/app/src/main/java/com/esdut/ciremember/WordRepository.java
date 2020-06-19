@@ -8,6 +8,8 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class WordRepository {
+    private LiveData<Word> Aword;
+    private String Chinese,English;
     private LiveData<List<Word>>allWordsLive;
     private WordDao wordDao;
     public WordRepository(Context context) {
@@ -35,6 +37,9 @@ public class WordRepository {
     }
     LiveData<List<Word>> findWordsWithPatten(String patten) {
         return wordDao.findWordsWithPatten("%" + patten + "%");
+    }
+    void updateAword(String...strings) {
+        new UpdateAAsynTask(wordDao).execute(strings);
     }
     /**
      * 我在测试
@@ -65,6 +70,27 @@ public class WordRepository {
         @Override
         protected Void doInBackground(Word... words) {
             wordDao.deleteWords(words);
+            return null;
+        }
+    }
+
+    static class UpdateAAsynTask extends AsyncTask<String,String,Void> {
+        private WordDao wordDao;
+
+        public UpdateAAsynTask(WordDao wordDao) {
+            this.wordDao = wordDao;
+        }
+
+//        @Override
+//        protected Void doInBackground(String Chinese,String English) {
+//            wordDao.updateAword(Chinese,English);
+//            return null;
+//        }
+
+
+        @Override
+        protected Void doInBackground(String... strings) {
+            wordDao.updateAword(strings[0],strings[1]);
             return null;
         }
     }

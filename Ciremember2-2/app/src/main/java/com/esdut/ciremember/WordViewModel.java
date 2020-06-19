@@ -33,6 +33,9 @@ public class WordViewModel extends AndroidViewModel {
     void clearWords() {
         wordRepository.clearWords();
     }
+    void updateAWord(String... strings) {
+        wordRepository.updateAword(strings);
+    }
 
 
 }

@@ -299,6 +299,7 @@ public class WordsFragment extends Fragment {
 
     @Override
     public void onResume() {
+
         InputMethodManager imm = (InputMethodManager) requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
         super.onResume();
