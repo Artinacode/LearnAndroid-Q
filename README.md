@@ -1,3 +1,3 @@
 # LearnAndroid-Q
-ALL MY LOVE
-DAY DAY UP!
+本项目为基于安卓系统开发的单词记录和背诵APP，该项目采用了MVVM架构，创新的使用了ViewModel、LiveData、Date
+Binding等技术，使用Room技术操作Sqlite数据库储存单词数据，实现了单词记录和学习的功能。
